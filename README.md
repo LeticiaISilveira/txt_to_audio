@@ -5,23 +5,30 @@ separa leitura do PDF, sintese de voz e interface de terminal.
 
 ## Requisitos
 
-- Python 3.10 ou superior
+- Python 3.10, 3.11 ou 3.12. O Kokoro usado pelo projeto ainda nao oferece as
+  versoes necessarias para Python 3.13 ou superior.
 - `espeak-ng`, necessario pelo Kokoro:
   - macOS: `brew install espeak-ng`
   - Ubuntu/Debian: `sudo apt-get install espeak-ng`
 
 ## Instalacao
 
-Na raiz do projeto, crie e ative um ambiente virtual e instale as dependencias:
+Na raiz do projeto, crie o ambiente virtual com Python 3.12 e instale as
+dependencias. No macOS, instale o Python 3.12 se necessario com
+`brew install python@3.12`:
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
+python3.12 -m venv .venv312
+source .venv312/bin/activate
 python -m pip install -r requirements.txt
 python -m pip install -e .
 ```
 
-No Windows, ative o ambiente com `.venv\Scripts\activate`.
+Usei `.venv312` no exemplo para nao alterar o ambiente `.venv` que voce ja
+criou com uma versao incompatível do Python.
+
+No Windows, crie o ambiente com `py -3.12 -m venv .venv` e ative-o com
+`.venv\Scripts\activate`.
 
 ## Uso
 
@@ -41,6 +48,24 @@ pdf-to-audio ./meu-livro.pdf \
   --voice pf_dora \
   --speed 1.0
 ```
+
+Para ouvir uma frase curta e testar uma voz antes de converter um PDF:
+
+```bash
+pdf-to-audio --test-voice
+```
+
+O comando gera `voice-test.wav` na pasta atual e reproduz o arquivo. Para
+testar outra voz ou escolher o destino do WAV:
+
+```bash
+pdf-to-audio --test-voice --language p --voice pf_dora --speed 1.0 \
+  --output ./teste-de-voz.wav
+```
+
+Para vozes em ingles do seu teste, use `--language a`, por exemplo
+`pdf-to-audio --test-voice --language a --voice am_eric`. No macOS, o app usa
+`afplay`; no Linux, `aplay` ou `paplay`; no Windows, o player WAV do sistema.
 
 O idioma e a voz precisam ser compativeis. Para portugues brasileiro, use
 `--language p` com uma voz portuguesa, como `pf_dora` ou `pm_alex`. As vozes
@@ -66,8 +91,9 @@ precisam passar por OCR antes; OCR ainda nao faz parte deste app.
 │   └── pdf_to_audio/
 │       ├── cli.py             # Argumentos e fluxo da aplicacao
 │       ├── pdf_reader.py      # Extracao de texto do PDF
-│       └── speech.py          # Geracao de WAV com Kokoro
+│       └── speech.py          # Geracao e reproducao de WAV
 ├── tests/
+│   ├── test_cli.py
 │   ├── test_pdf_reader.py
 │   └── test_speech.py
 └── pyproject.toml

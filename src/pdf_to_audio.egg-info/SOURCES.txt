@@ -11,4 +11,6 @@ src/pdf_to_audio.egg-info/dependency_links.txt
 src/pdf_to_audio.egg-info/entry_points.txt
 src/pdf_to_audio.egg-info/requires.txt
 src/pdf_to_audio.egg-info/top_level.txt
+tests/test_cli.py
 tests/test_pdf_reader.py
+tests/test_speech.py

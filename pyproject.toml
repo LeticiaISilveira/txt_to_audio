@@ -7,7 +7,7 @@ name = "pdf-to-audio"
 version = "0.1.0"
 description = "Converte o texto de PDFs em audio usando Kokoro TTS."
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.10,<3.13"
 dependencies = [
     "kokoro>=0.9.2",
     "pypdf>=5.0.0",
