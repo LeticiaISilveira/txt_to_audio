@@ -1,3 +1,5 @@
+-e .
 kokoro>=0.9.2
 pypdf>=5.0.0
 soundfile>=0.13.0
+gradio>=5.0.0,<6.0.0
