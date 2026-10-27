@@ -13,6 +13,37 @@ separa leitura do PDF, sintese de voz e interface de terminal.
 
 ## Instalacao
 
+### Instalar para usar o comando
+
+No macOS, instale os requisitos do sistema e o `pipx`:
+
+```bash
+brew install python@3.12 espeak-ng pipx
+pipx ensurepath
+```
+
+Abra um novo Terminal e instale o app diretamente do GitHub:
+
+```bash
+pipx install --python python3.12 \
+  "git+https://github.com/LeticiaISilveira/txt_to_audio.git"
+```
+
+Depois, o comando fica disponivel de qualquer pasta:
+
+```bash
+pdf-to-audio --test-voice
+pdf-to-audio "/caminho/para/seu-arquivo.pdf"
+```
+
+Para atualizar para a versao mais recente:
+
+```bash
+pipx upgrade pdf-to-audio
+```
+
+### Instalar para desenvolvimento
+
 Na raiz do projeto, crie o ambiente virtual com Python 3.12 e instale as
 dependencias. No macOS, instale o Python 3.12 se necessario com
 `brew install python@3.12`:
@@ -24,11 +55,8 @@ python -m pip install -r requirements.txt
 python -m pip install -e .
 ```
 
-Usei `.venv312` no exemplo para nao alterar o ambiente `.venv` que voce ja
-criou com uma versao incompatível do Python.
-
-No Windows, crie o ambiente com `py -3.12 -m venv .venv` e ative-o com
-`.venv\Scripts\activate`.
+Use `.venv312` para manter o ambiente isolado. No Windows, crie o ambiente
+com `py -3.12 -m venv .venv` e ative-o com `.venv\Scripts\activate`.
 
 ## Uso
 
