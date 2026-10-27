@@ -48,6 +48,8 @@ def main() -> None:
         parser.error("--speed precisa ser maior que zero")
 
     output_path = args.output or args.pdf.with_suffix(".wav")
+    if output_path.suffix.lower() != ".wav":
+        parser.error("o arquivo de saida precisa ter extensao .wav")
     if output_path.resolve() == args.pdf.resolve():
         parser.error("o arquivo de saida nao pode substituir o PDF de entrada")
 

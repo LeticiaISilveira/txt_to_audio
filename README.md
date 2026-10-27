@@ -12,11 +12,12 @@ separa leitura do PDF, sintese de voz e interface de terminal.
 
 ## Instalacao
 
-Na raiz do projeto, crie e ative um ambiente virtual e instale o aplicativo:
+Na raiz do projeto, crie e ative um ambiente virtual e instale as dependencias:
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
+python -m pip install -r requirements.txt
 python -m pip install -e .
 ```
 
@@ -67,7 +68,8 @@ precisam passar por OCR antes; OCR ainda nao faz parte deste app.
 │       ├── pdf_reader.py      # Extracao de texto do PDF
 │       └── speech.py          # Geracao de WAV com Kokoro
 ├── tests/
-│   └── test_pdf_reader.py
+│   ├── test_pdf_reader.py
+│   └── test_speech.py
 └── pyproject.toml
 ```
 
