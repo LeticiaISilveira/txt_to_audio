@@ -115,7 +115,7 @@ Para vozes em ingles do seu teste, use `--language a`, por exemplo
 `afplay`; no Linux, `aplay` ou `paplay`; no Windows, o player WAV do sistema.
 
 O idioma e a voz precisam ser compativeis. Para portugues brasileiro, use
-`--language p` com uma voz portuguesa, como `pf_dora` ou `pm_alex`. As vozes
+`--language p`, como `pf_dora` ou `pm_alex`. As vozes
 `af_heart`, `am_eric`, `am_puck` e `af_nicole` do teste sao vozes em ingles
 americano (`--language a`).
 
