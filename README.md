@@ -15,14 +15,33 @@ separa leitura do PDF, sintese de voz e interface de terminal.
 
 ### Instalar para usar o comando
 
-No macOS, instale os requisitos do sistema e o `pipx`:
+#### macOS
+
+Instale os requisitos do sistema e o `pipx`:
 
 ```bash
 brew install python@3.12 espeak-ng pipx
 pipx ensurepath
 ```
 
-Abra um novo Terminal e instale o app diretamente do GitHub:
+#### Linux (Ubuntu/Debian)
+
+Instale Python 3.12, o suporte a ambientes virtuais, `espeak-ng`, `pipx` e Git:
+
+```bash
+sudo apt update
+sudo apt install python3.12 python3.12-venv espeak-ng pipx git
+pipx ensurepath
+```
+
+Se sua versao do Ubuntu/Debian nao disponibilizar `python3.12`, instale o
+Python 3.12 por uma fonte apropriada para sua distribuicao antes de continuar.
+
+Em distribuicoes Fedora, instale os pacotes equivalentes (`python3.12`,
+`espeak-ng`, `pipx` e `git`) com `dnf` antes de executar os comandos do `pipx`.
+
+Depois de instalar os requisitos do seu sistema, abra um novo terminal,
+execute `pipx ensurepath` se necessario e instale o app diretamente do GitHub:
 
 ```bash
 pipx install --python python3.12 \
@@ -126,9 +145,3 @@ precisam passar por OCR antes; OCR ainda nao faz parte deste app.
 │   └── test_speech.py
 └── pyproject.toml
 ```
-
-O arquivo original era uma exportacao de notebook do Colab, com comandos
-`!pip`, interfaces do IPython e experimentos separados de XTTS/OmniVoice.
-Esses comandos nao sao Python executavel localmente; o fluxo Kokoro relevante
-foi aproveitado no app e no exemplo de vozes. Os experimentos de clonagem nao
-foram incluidos na conversao PDF para audio.
