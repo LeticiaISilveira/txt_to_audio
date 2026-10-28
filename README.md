@@ -11,7 +11,7 @@ python_version: "3.12"
 # PDF to Audio
 
 Aplicativo de linha de comando que extrai o texto de um PDF e gera um arquivo WAV com o Kokoro TTS. O projeto
-separa leitura do PDF, sintese de voz, interface de terminal e interface web.
+separa leitura do PDF, sintese de voz, interface de terminal e interface web (wip).
 
 ## Requisitos
 
